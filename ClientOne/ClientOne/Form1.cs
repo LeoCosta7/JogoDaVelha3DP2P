@@ -150,7 +150,7 @@ namespace ClientOne
                     }
 
                 }
-                catch (IOException ex)      
+                catch (IOException ex)
                 {
                     HandleDisconnection();
                     break;
@@ -301,7 +301,7 @@ namespace ClientOne
 
             isValidMove = jsonGameMessage.ClientPlayed;
             CheckScore();
-            
+
             DisableButton(button);
         }
 
@@ -375,7 +375,7 @@ namespace ClientOne
             {
                 MessageBox.Show("Client not yet connected. Please wait.");
             }
-            
+
         }
 
         private bool ValidateUserNickName()
@@ -466,7 +466,7 @@ namespace ClientOne
             {
                 if (CheckIndex(combination[0], combination[1], combination[2]))
                 {
-                    break; 
+                    break;
                 }
                 else if (isDraw())
                 {
@@ -478,7 +478,7 @@ namespace ClientOne
                     };
                     ChangeButtonsStatus(statusChangeItems);
 
-                    MessageBox.Show($"EMPATE"); 
+                    MessageBox.Show($"EMPATE");
                 }
             }
         }
@@ -493,16 +493,16 @@ namespace ClientOne
 
             if (winner)
             {
-                MarkWinnerBoard(btn1, btn2, btn3, isValidMove ? OpponentName: user.Nickname);          //True = o adversário acabou de jogar; False = o player atual acabou de fazer uma jogada e chamou o método.
+                MarkWinnerBoard(btn1, btn2, btn3, isValidMove ? OpponentName : user.Nickname);          //True = o adversário acabou de jogar; False = o player atual acabou de fazer uma jogada e chamou o método.
             }
 
             return winner;
-        }        
+        }
 
         private Button GetButtonByIndex(int index)
         {
             return this.Controls.Find("btnTic" + index.ToString(), true).FirstOrDefault() as Button;
-        }       
+        }
 
         private void MarkWinnerBoard(Button btn1, Button btn2, Button btn3, string winner)
         {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gs/HZBFVNKjdO2Hn68j33SguMAwOFIMGA+L+RG6CWLIbtfeof5BZXZp9dDJmYw41agQCZWq3Rk/oE5Bw32UdBw==",
+  "dgSpecHash": "9NGtD2uhwlLi8i1NeIXdb/kARfO6uQj95LJcTBoW5QX/hqWeWA9AKcujQmSUlD2SxBWcJr27zpBtGBnthYZBww==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nameless\\Desktop\\ClientOne\\ClientOne\\ClientOne.csproj",
+  "projectFilePath": "C:\\Users\\Nameless\\Documents\\Github\\JogoDaVelha3DP2P\\ClientOne\\ClientOne\\ClientOne.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nameless\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],

@@ -60,11 +60,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nameless\\Desktop\\ClientTwo\\ClientTwo\\ClientTwo.csproj",
+      "projectUniqueName": "C:\\Users\\Nameless\\Documents\\Github\\JogoDaVelha3DP2P\\ClientTwo\\ClientTwo\\ClientTwo.csproj",
       "projectName": "ClientTwo",
-      "projectPath": "C:\\Users\\Nameless\\Desktop\\ClientTwo\\ClientTwo\\ClientTwo.csproj",
+      "projectPath": "C:\\Users\\Nameless\\Documents\\Github\\JogoDaVelha3DP2P\\ClientTwo\\ClientTwo\\ClientTwo.csproj",
       "packagesPath": "C:\\Users\\Nameless\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nameless\\Desktop\\ClientTwo\\ClientTwo\\obj\\",
+      "outputPath": "C:\\Users\\Nameless\\Documents\\Github\\JogoDaVelha3DP2P\\ClientTwo\\ClientTwo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Nameless\\AppData\\Roaming\\NuGet\\NuGet.Config",
