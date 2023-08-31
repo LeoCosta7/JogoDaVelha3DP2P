@@ -448,7 +448,7 @@ namespace ClientTwo
                 new int[] { 7, 17, 27 },
                 new int[] { 3, 11, 19 },
                 new int[] { 6, 14, 22 },
-                new int[] { 9, 17, 9 },
+                new int[] { 9, 17, 25 },
                 new int[] { 1, 13, 25 },
                 new int[] { 2, 14, 26 },
                 new int[] { 3, 15, 27 },
