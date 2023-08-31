@@ -243,7 +243,10 @@ namespace ClientOne
             statusChangeItems = new Dictionary<string, bool>
             {
                 { "btnTic", false },
-                { "Symbol" , false }
+                { "Symbol" , false },
+                {"SurrenderButton" , false},
+                {"Send" , false},
+                {"NewGameButton" , false}
             };
 
             ChangeButtonsStatus(statusChangeItems);
@@ -537,7 +540,7 @@ namespace ClientOne
             };
 
             ChangeButtonsStatus(statusChangeItems);
-            MessageBox.Show($"You surrendered", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information); //TODO: ALTERAR MSG DE RENDIÇÃO
+            MessageBox.Show($"You surrendered", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information); 
 
             await SendMoveAsync(gameMessage);
 
@@ -554,7 +557,7 @@ namespace ClientOne
             };
 
             ChangeButtonsStatus(statusChangeItems);
-            MessageBox.Show($"Opponent surrendered", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information); //TODO: ALTERAR MSG DE RENDIÇÃO
+            MessageBox.Show($"Opponent surrendered", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information); 
 
             await SendMessageAsync($"The winner is Player {user.Nickname}");
         }
@@ -591,7 +594,7 @@ namespace ClientOne
             };
 
             ChangeButtonsStatus(statusChangeItems);
-            ResetButtonsToNewGame("", "btnTic");            //Se receber um new game, então o atual tabuleiro vai para o mesmo status do outro cliente que enviou a requisição
+            ResetButtonsToNewGame("", "btnTic");            
 
             isValidMove = true;
         }
