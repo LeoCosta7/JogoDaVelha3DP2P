@@ -231,26 +231,33 @@ namespace ClientOne
 
         private void HandleDisconnection()
         {
-            // Fechar os fluxos e o socket
-            STR.Close();
-            STW.Close();
-            client.Close();
-
-            isValidMove = false;
-
-            MessageBox.Show("Disconnected from the server.");
-
-            statusChangeItems = new Dictionary<string, bool>
+            try
             {
-                { "btnTic", false },
-                { "Symbol" , false },
-                {"SurrenderButton" , false},
-                {"Send" , false},
-                {"NewGameButton" , false}
-            };
+                // Fechar os fluxos e o socket
+                STR.Close();
+                STW.Close();
+                client.Close();
 
-            ChangeButtonsStatus(statusChangeItems);
-            ResetButtonsToNewGame("", "btnTic");
+                isValidMove = false;
+
+                statusChangeItems = new Dictionary<string, bool>
+                {
+                    { "btnTic", false },
+                    { "Symbol" , false },
+                    { "SurrenderButton" , false},
+                    { "Send" , false},
+                    { "NewGameButton" , false}
+                };
+
+                ChangeButtonsStatus(statusChangeItems);
+                ResetButtonsToNewGame("", "btnTic");
+
+                MessageBox.Show("Disconnected from the server.");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error during disconnection: " + ex.Message);
+            }
         }
 
         private void DisableButton(Button button)
@@ -281,7 +288,6 @@ namespace ClientOne
                 if (control is Button button && button.Name.Contains("btnTic") && button.Text == "")        //Verifica ainda resta campos vazios (ainda há jogadas a se fazer)
                     return false;
             }
-
             return true;    // Em caso de empate 
         }
 

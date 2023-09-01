@@ -76,7 +76,7 @@ namespace ClientTwo
 
                     client = await listenerSocket.AcceptAsync();
 
-                    ChatTextBox.AppendText("Connect to ClientTwo" + Environment.NewLine);
+                    ChatTextBox.AppendText("Connect to ClientOne" + Environment.NewLine);
                     STR = new StreamReader(new NetworkStream(client));
                     STW = new StreamWriter(new NetworkStream(client));
                     STW.AutoFlush = true;
@@ -91,7 +91,7 @@ namespace ClientTwo
 
                     ChangeButtonsStatus(statusChangeItems = new Dictionary<string, bool> { { "Symbol", true } });
 
-                    ChatTextBox.AppendText("Connect to ClientTwo" + Environment.NewLine);
+                    ChatTextBox.AppendText("Connect to ClientOne" + Environment.NewLine);
                     STR = new StreamReader(new NetworkStream(client));
                     STW = new StreamWriter(new NetworkStream(client));
                     STW.AutoFlush = true;
@@ -230,23 +230,34 @@ namespace ClientTwo
 
         private void HandleDisconnection()
         {
-            // Fechar os fluxos e o socket
-            STR.Close();
-            STW.Close();
-            client.Close();
-
-            isValidMove = false;
-
-            MessageBox.Show("Disconnected from the server.");
-
-            statusChangeItems = new Dictionary<string, bool>
+            try
             {
-                { "btnTic", false },
-                { "Symbol" , false }
-            };
+                // Fechar os fluxos e o socket
+                STR.Close();
+                STW.Close();
+                client.Close();
 
-            ChangeButtonsStatus(statusChangeItems);
-            ResetButtonsToNewGame("", "btnTic");
+                isValidMove = false;
+
+
+                statusChangeItems = new Dictionary<string, bool>
+                {
+                    { "btnTic", false },
+                    { "Symbol" , false },
+                    { "SurrenderButton" , false},
+                    { "Send" , false},
+                    { "NewGameButton" , false}
+                };
+
+                ChangeButtonsStatus(statusChangeItems);
+                ResetButtonsToNewGame("", "btnTic");
+
+                MessageBox.Show("Disconnected from the server.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error during disconnection: " + ex.Message);
+            }
         }
 
         private void DisableButton(Button button)
@@ -277,7 +288,6 @@ namespace ClientTwo
                 if (control is Button button && button.Name.Contains("btnTic") && button.Text == "")        //Verifica ainda resta campos vazios (ainda há jogadas a se fazer)
                     return false;
             }
-
             return true;    // Em caso de empate 
         }
 
@@ -536,7 +546,7 @@ namespace ClientTwo
             };
 
             ChangeButtonsStatus(statusChangeItems);
-            MessageBox.Show($"You surrendered", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information); //TODO: ALTERAR MSG DE RENDIÇÃO
+            MessageBox.Show($"You surrendered", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information); 
 
             await SendMoveAsync(gameMessage);
 
@@ -553,7 +563,7 @@ namespace ClientTwo
             };
 
             ChangeButtonsStatus(statusChangeItems);
-            MessageBox.Show($"Opponent surrendered", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information); //TODO: ALTERAR MSG DE RENDIÇÃO
+            MessageBox.Show($"Opponent surrendered", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information); 
 
             await SendMessageAsync($"The winner is Player {user.Nickname}");
         }
@@ -590,7 +600,7 @@ namespace ClientTwo
             };
 
             ChangeButtonsStatus(statusChangeItems);
-            ResetButtonsToNewGame("", "btnTic");            //Se receber um new game, então o atual tabuleiro vai para o mesmo status do outro cliente que enviou a requisição
+            ResetButtonsToNewGame("", "btnTic");            
 
             isValidMove = true;
         }
