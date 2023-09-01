@@ -306,7 +306,7 @@ namespace ClientTwo
         private void SetBoardPosition(GameMessage jsonGameMessage)
         {
             Button button = FindButtonByName(jsonGameMessage.Position);
-            
+
             button.Text = OpponentSymbol;
             button.BackColor = Color.Orange;
 
@@ -517,9 +517,9 @@ namespace ClientTwo
 
         private void MarkWinnerBoard(Button btn1, Button btn2, Button btn3, string winner)
         {
-            btn1.BackColor = Color.Red;
-            btn2.BackColor = Color.Red;
-            btn3.BackColor = Color.Red;
+            btn1.BackColor = Color.Aqua;
+            btn2.BackColor = Color.Aqua;
+            btn3.BackColor = Color.Aqua;
 
             statusChangeItems = new Dictionary<string, bool>
             {

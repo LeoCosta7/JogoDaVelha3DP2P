@@ -503,7 +503,7 @@
             // pictureBox1
             // 
             pictureBox1.BackgroundImage = Properties.Resources.tic_tac_toe__5_;
-            pictureBox1.Location = new Point(90, 396);
+            pictureBox1.Location = new Point(87, 382);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(128, 127);
             pictureBox1.TabIndex = 41;
