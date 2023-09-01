@@ -306,7 +306,9 @@ namespace ClientTwo
         private void SetBoardPosition(GameMessage jsonGameMessage)
         {
             Button button = FindButtonByName(jsonGameMessage.Position);
+            
             button.Text = OpponentSymbol;
+            button.BackColor = Color.Orange;
 
             isValidMove = jsonGameMessage.ClientPlayed;
             CheckScore();
@@ -515,9 +517,9 @@ namespace ClientTwo
 
         private void MarkWinnerBoard(Button btn1, Button btn2, Button btn3, string winner)
         {
-            btn1.BackColor = Color.PowderBlue;
-            btn2.BackColor = Color.PowderBlue;
-            btn3.BackColor = Color.PowderBlue;
+            btn1.BackColor = Color.Red;
+            btn2.BackColor = Color.Red;
+            btn3.BackColor = Color.Red;
 
             statusChangeItems = new Dictionary<string, bool>
             {
@@ -546,7 +548,7 @@ namespace ClientTwo
             };
 
             ChangeButtonsStatus(statusChangeItems);
-            MessageBox.Show($"You surrendered", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+            MessageBox.Show($"You surrendered", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             await SendMoveAsync(gameMessage);
 
@@ -563,7 +565,7 @@ namespace ClientTwo
             };
 
             ChangeButtonsStatus(statusChangeItems);
-            MessageBox.Show($"Opponent surrendered", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+            MessageBox.Show($"Opponent surrendered", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             await SendMessageAsync($"The winner is Player {user.Nickname}");
         }
@@ -600,7 +602,7 @@ namespace ClientTwo
             };
 
             ChangeButtonsStatus(statusChangeItems);
-            ResetButtonsToNewGame("", "btnTic");            
+            ResetButtonsToNewGame("", "btnTic");
 
             isValidMove = true;
         }
@@ -745,6 +747,7 @@ namespace ClientTwo
             if (isValidMove)
             {
                 button.Text = user.ChosenSymbol;
+                button.BackColor = Color.PaleGreen;
 
                 gameMessage = new GameMessage
                 {
